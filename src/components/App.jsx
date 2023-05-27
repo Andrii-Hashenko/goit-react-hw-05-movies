@@ -5,13 +5,6 @@ import Container from './Container/Container';
 import Loader from './Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import HomeView from '../views/HomeView';
-// import SearchMovieByName from '../views/SearchMovieByName';
-// import MovieDetailsView from '../views/MovieDetailsView';
-// import MoviesView from '../views/MoviesView';
-// import MoviesCast from '../views/MovieCast/MovieCast';
-// import MoviesReviews from '../views/MoviesReviews';
-// import NotFoundView from '../views/NotFoundView';
 
 const HomeView = lazy(() => import('../views/HomeView'));
 const MoviesView = lazy(() => import('../views/MoviesView'));
@@ -34,15 +27,15 @@ export const App = () => {
         autoClose={3000}
         theme={'colored'}
       />
-      {/* <Suspense fallback="<h1>Завантажуємо...</h1>"> */}
+      {}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomeView />}></Route>
           <Route path="movies" element={<MoviesView />}>
             <Route index element={<SearchMovieByName />}></Route>
-            {/* сюди рендерим компонент, який відповідає за показування одного лише фільму */}
+            {}
             <Route path=":movieId" element={<MovieDetailsView />}>
-              {/* вложені елементи, що рендяряться внизу на тій же сторінці що і карточка фільму,  */}
+              {}
               <Route path="cast" element={<MoviesCast />}></Route>
               <Route path="reviews" element={<MoviesReviews />}></Route>
             </Route>
@@ -50,7 +43,7 @@ export const App = () => {
           <Route path="*" element={<NotFoundView />}></Route>
         </Routes>
       </Suspense>
-      {/* </Suspense> */}
+      {}
     </Container>
   );
 };

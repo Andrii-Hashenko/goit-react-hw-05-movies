@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-//  * Стили компонента ImageGallery
+
 
 export const CastGallery = styled.ul`
   display: grid;

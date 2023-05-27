@@ -12,25 +12,19 @@ import {
 
 export default function FormBySearch(props) {
   const [searchMovie, setSearchMovie] = useState(props.searchMovie);
-  // обновляє стейт при кожному нажатии в инпуті
+
   const handleChange = event => {
     setSearchMovie(event.currentTarget.value.toLowerCase());
-    // console.log(setSearchMovie);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    // при сабміті нашої форми визиваємо метод із АРР (хендлформсабмит), який сюди передався як проп
-    // імя пропа може бути яке завгодно, я назвала інсабміт
-    // проверяем, если в форму ничего не ввели, или там просто пробелі (метод трим)
-    // то ми просто виходимо з цього метода і не самбітимо форму
+
     if (searchMovie.trim() === '') {
       toast.error('Please enter your query');
       return;
     }
     props.inSubmit(searchMovie);
-    // очищаем стейт зразу після сабміта форми
-    // setSearchImage('');
   };
   return (
     <SearchForm onSubmit={handleSubmit}>
